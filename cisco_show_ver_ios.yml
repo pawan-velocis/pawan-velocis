@@ -1,0 +1,26 @@
+---
+
+- name: Cisco show version example
+  hosts: 'all'
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: run show version on the routers
+      ios_command:
+        commands: show running-config
+      register: output
+
+
+    - name: print output
+      debug:
+        var: output.stdout_lines
+    - name: Run Py script
+      command: python3.9 processing.py {{inventory_hostname}} {{ output.stdout_lines }}
+      become: yes
+      become_user: root
+      register: python_output
+
+    - name: print python output
+      debug:
+        var: python_output.stdout_lines
