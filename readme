@@ -1,0 +1,28 @@
+*************************Ansible Installation:*********************************
+
+update the system packages
+
+$ sudo apt-get update
+Install Ansible on Ubuntu
+First Install Required packages to install Ansible.
+
+$ sudo apt install software-properties-common
+Add the ansible repository via PPA
+
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+Update the repository and Install Ansible using below command
+
+$ sudo apt-get update -yCopy
+$ sudo apt install ansible
+Once Installed Check Ansible version using below command,
+
+$ sudo ansible –version
+
+******************Ansible Runner Installation:************************
+
+$ pip install ansible-runner
+
+
+Please Execute this script with Python command line:
+
+$ python3.7 execute_ansible.py
